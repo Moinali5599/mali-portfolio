@@ -61,7 +61,11 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Portfolio-specific colors
+				'surface-elevated': 'hsl(var(--surface-elevated))',
+				'text-accent': 'hsl(var(--text-accent))',
+				'timeline-line': 'hsl(var(--timeline-line))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
