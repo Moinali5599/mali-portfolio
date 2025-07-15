@@ -8,41 +8,41 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 220 15% 15%;
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    --card: 222 84% 4.9%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    --popover: 222 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 220 90% 55%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 84% 4.9%;
 
-    --secondary: 210 20% 96%;
-    --secondary-foreground: 220 15% 25%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 20% 95%;
-    --muted-foreground: 220 10% 50%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 220 90% 55%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 222 84% 4.9%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 92%;
-    --ring: 220 90% 55%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 217 91% 60%;
 
     /* Portfolio-specific colors */
-    --hero-gradient-start: 220 90% 55%;
-    --hero-gradient-end: 260 90% 65%;
-    --text-accent: 220 90% 55%;
-    --surface-elevated: 0 0% 100%;
-    --shadow-subtle: 220 15% 85%;
-    --timeline-line: 220 90% 55%;
+    --hero-gradient-start: 217 91% 60%;
+    --hero-gradient-end: 261 84% 65%;
+    --text-accent: 217 91% 60%;
+    --surface-elevated: 217 32% 17%;
+    --shadow-subtle: 0 0% 0%;
+    --timeline-line: 217 91% 60%;
 
     --radius: 0.5rem;
 
