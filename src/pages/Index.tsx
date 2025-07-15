@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Calendar, MapPin, GraduationCap, Briefcase, ExternalLink, Github, Mail, Send, Linkedin, Download, ArrowDown, Code, Palette, Zap } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
 
 const Index = () => {
   const { toast } = useToast();
@@ -151,136 +152,245 @@ const Index = () => {
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-10">
         <div className="container mx-auto px-6 text-center">
-          <div className="animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.h1 
+              className="text-5xl md:text-7xl font-bold mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               <span className="text-gradient">Hello, I'm</span>
               <br />
               <span className="text-foreground">Your Name</span>
-            </h1>
+            </motion.h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <motion.p 
+              className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
               Full Stack Developer passionate about creating beautiful, functional, and user-centered digital experiences.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-              <Button size="lg" className="hover-lift">
-                <Github className="mr-2 h-5 w-5" />
-                GitHub
-              </Button>
+            <motion.div 
+              className="flex flex-wrap items-center justify-center gap-4 mb-12"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button size="lg">
+                  <Github className="mr-2 h-5 w-5" />
+                  GitHub
+                </Button>
+              </motion.div>
               
-              <Button variant="outline" size="lg" className="hover-lift">
-                <Linkedin className="mr-2 h-5 w-5" />
-                LinkedIn
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button variant="outline" size="lg">
+                  <Linkedin className="mr-2 h-5 w-5" />
+                  LinkedIn
+                </Button>
+              </motion.div>
               
-              <Button variant="secondary" size="lg" className="hover-lift">
-                <Download className="mr-2 h-5 w-5" />
-                Resume
-              </Button>
-            </div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button variant="secondary" size="lg">
+                  <Download className="mr-2 h-5 w-5" />
+                  Resume
+                </Button>
+              </motion.div>
+            </motion.div>
 
-            <button 
+            <motion.button 
               onClick={scrollToAbout}
               className="inline-flex items-center text-muted-foreground hover:text-accent transition-colors"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              whileHover={{ y: -5 }}
             >
-              <ArrowDown className="animate-bounce" />
-            </button>
-          </div>
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <ArrowDown />
+              </motion.div>
+            </motion.button>
+          </motion.div>
         </div>
       </section>
 
       {/* About Section */}
       <section id="about" className="py-20 bg-muted/30">
         <div className="container mx-auto px-6">
-          <div className="animate-slide-up">
-            <h2 className="text-4xl font-bold text-center mb-4">About Me</h2>
-            <p className="text-xl text-muted-foreground text-center mb-16 max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h2 
+              className="text-4xl font-bold text-center mb-4"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              About Me
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-muted-foreground text-center mb-16 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               I'm a passionate developer with a love for creating digital experiences that make a difference. 
               With expertise in modern web technologies, I enjoy turning complex problems into simple, 
               beautiful, and intuitive solutions.
-            </p>
+            </motion.p>
 
             <div className="grid md:grid-cols-3 gap-8">
               {skills.map((skill, index) => (
-                <Card key={index} className="p-8 text-center hover-lift bg-surface-elevated">
-                  <skill.icon className="w-12 h-12 text-accent mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-3">{skill.title}</h3>
-                  <p className="text-muted-foreground">{skill.description}</p>
-                </Card>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                >
+                  <Card className="p-8 text-center bg-surface-elevated h-full">
+                    <motion.div
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <skill.icon className="w-12 h-12 text-accent mx-auto mb-4" />
+                    </motion.div>
+                    <h3 className="text-xl font-semibold mb-3">{skill.title}</h3>
+                    <p className="text-muted-foreground">{skill.description}</p>
+                  </Card>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Experience Section */}
       <section id="experience" className="py-20">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h2 
+              className="text-4xl md:text-6xl font-bold mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               My <span className="text-gradient">Journey</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-muted-foreground max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               A timeline of my professional experience and educational background
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-timeline-line hidden md:block"></div>
+              <motion.div 
+                className="absolute left-8 top-0 bottom-0 w-0.5 bg-timeline-line hidden md:block"
+                initial={{ height: 0 }}
+                whileInView={{ height: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5, delay: 0.5 }}
+              ></motion.div>
 
               <div className="space-y-12">
                 {experiences.map((exp, index) => (
-                  <div key={index} className="relative animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <motion.div 
+                    key={index} 
+                    className="relative"
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                  >
                     {/* Timeline dot */}
-                    <div className="absolute left-6 w-4 h-4 bg-timeline-line rounded-full border-4 border-background hidden md:block"></div>
+                    <motion.div 
+                      className="absolute left-6 w-4 h-4 bg-timeline-line rounded-full border-4 border-background hidden md:block"
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
+                    ></motion.div>
                     
-                    <Card className="md:ml-20 p-8 hover-lift bg-surface-elevated">
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="flex items-center gap-3 mb-2">
-                          {exp.type === "work" ? (
-                            <Briefcase className="w-5 h-5 text-accent" />
-                          ) : (
-                            <GraduationCap className="w-5 h-5 text-accent" />
-                          )}
-                          <h3 className="text-xl font-semibold">{exp.title}</h3>
-                        </div>
-                        <Badge variant="secondary" className="hidden md:block">
-                          {exp.type === "work" ? "Experience" : "Education"}
-                        </Badge>
-                      </div>
-
-                      <div className="space-y-3 mb-4">
-                        <div className="flex items-center gap-2 text-accent font-medium">
-                          <span>{exp.company}</span>
-                        </div>
-                        
-                        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-                          <div className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            {exp.period}
+                    <motion.div
+                      whileHover={{ y: -5, scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Card className="md:ml-20 p-8 bg-surface-elevated">
+                        <div className="flex items-start justify-between mb-4">
+                          <div className="flex items-center gap-3 mb-2">
+                            {exp.type === "work" ? (
+                              <Briefcase className="w-5 h-5 text-accent" />
+                            ) : (
+                              <GraduationCap className="w-5 h-5 text-accent" />
+                            )}
+                            <h3 className="text-xl font-semibold">{exp.title}</h3>
                           </div>
-                          <div className="flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
-                            {exp.location}
-                          </div>
-                        </div>
-                      </div>
-
-                      <p className="text-muted-foreground mb-4">
-                        {exp.description}
-                      </p>
-
-                      <div className="flex flex-wrap gap-2">
-                        {exp.technologies.map((tech, techIndex) => (
-                          <Badge key={techIndex} variant="outline">
-                            {tech}
+                          <Badge variant="secondary" className="hidden md:block">
+                            {exp.type === "work" ? "Experience" : "Education"}
                           </Badge>
-                        ))}
-                      </div>
-                    </Card>
-                  </div>
+                        </div>
+
+                        <div className="space-y-3 mb-4">
+                          <div className="flex items-center gap-2 text-accent font-medium">
+                            <span>{exp.company}</span>
+                          </div>
+                          
+                          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                            <div className="flex items-center gap-1">
+                              <Calendar className="w-4 h-4" />
+                              {exp.period}
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <MapPin className="w-4 h-4" />
+                              {exp.location}
+                            </div>
+                          </div>
+                        </div>
+
+                        <p className="text-muted-foreground mb-4">
+                          {exp.description}
+                        </p>
+
+                        <div className="flex flex-wrap gap-2">
+                          {exp.technologies.map((tech, techIndex) => (
+                            <Badge key={techIndex} variant="outline">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </Card>
+                    </motion.div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -291,60 +401,98 @@ const Index = () => {
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-muted/30">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h2 
+              className="text-4xl md:text-6xl font-bold mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               My <span className="text-gradient">Projects</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-muted-foreground max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               A collection of projects that showcase my skills and passion for development
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {projects.map((project, index) => (
-              <Card 
-                key={index} 
-                className={`overflow-hidden hover-lift bg-surface-elevated animate-scale-in ${
-                  project.featured ? 'lg:col-span-2' : ''
-                }`}
-                style={{ animationDelay: `${index * 0.1}s` }}
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -10 }}
+                className={project.featured ? 'lg:col-span-2' : ''}
               >
-                <div className={`${project.featured ? 'md:flex' : ''}`}>
-                  <div className={`${project.featured ? 'md:w-1/2' : ''}`}>
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-48 md:h-64 object-cover"
-                    />
-                  </div>
-                  
-                  <div className={`p-8 ${project.featured ? 'md:w-1/2' : ''}`}>
-                    <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
+                <Card className="overflow-hidden bg-surface-elevated h-full">
+                  <div className={`${project.featured ? 'md:flex' : ''}`}>
+                    <motion.div 
+                      className={`${project.featured ? 'md:w-1/2' : ''}`}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-48 md:h-64 object-cover"
+                      />
+                    </motion.div>
                     
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.technologies.map((tech, techIndex) => (
-                        <Badge key={techIndex} variant="outline">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                    
-                    <div className="flex gap-3">
-                      <Button size="sm" className="hover-lift">
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </Button>
-                      <Button variant="outline" size="sm" className="hover-lift">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
-                      </Button>
+                    <div className={`p-8 ${project.featured ? 'md:w-1/2' : ''}`}>
+                      <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
+                      <p className="text-muted-foreground mb-4 leading-relaxed">
+                        {project.description}
+                      </p>
+                      
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.technologies.map((tech, techIndex) => (
+                          <motion.div
+                            key={techIndex}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: 0.5 + techIndex * 0.05 }}
+                          >
+                            <Badge variant="outline">
+                              {tech}
+                            </Badge>
+                          </motion.div>
+                        ))}
+                      </div>
+                      
+                      <div className="flex gap-3">
+                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                          <Button size="sm">
+                            <Github className="w-4 h-4 mr-2" />
+                            Code
+                          </Button>
+                        </motion.div>
+                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                          <Button variant="outline" size="sm">
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Live Demo
+                          </Button>
+                        </motion.div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -353,86 +501,140 @@ const Index = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h2 
+              className="text-4xl md:text-6xl font-bold mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               Get In <span className="text-gradient">Touch</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-muted-foreground max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               I'd love to hear from you. Send me a message and I'll respond as soon as possible.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card className="p-8 hover-lift bg-surface-elevated animate-slide-up">
-              <h3 className="text-2xl font-semibold mb-6">Send Message</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Name
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <Card className="p-8 bg-surface-elevated">
+                <h3 className="text-2xl font-semibold mb-6">Send Message</h3>
+                
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: 0.4 }}
+                    >
+                      <label htmlFor="name" className="block text-sm font-medium mb-2">
+                        Name
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder="Your name"
+                        required
+                      />
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: 0.5 }}
+                    >
+                      <label htmlFor="email" className="block text-sm font-medium mb-2">
+                        Email
+                      </label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="your.email@example.com"
+                        required
+                      />
+                    </motion.div>
+                  </div>
+                  
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.6 }}
+                  >
+                    <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                      Subject
                     </label>
                     <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
                       onChange={handleInputChange}
-                      placeholder="Your name"
+                      placeholder="What's this about?"
                       required
                     />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email
+                  </motion.div>
+                  
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.7 }}
+                  >
+                    <label htmlFor="message" className="block text-sm font-medium mb-2">
+                      Message
                     </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
                       onChange={handleInputChange}
-                      placeholder="your.email@example.com"
+                      placeholder="Your message..."
+                      className="min-h-[120px]"
                       required
                     />
-                  </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                    Subject
-                  </label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    placeholder="What's this about?"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Your message..."
-                    className="min-h-[120px]"
-                    required
-                  />
-                </div>
-                
-                <Button type="submit" className="w-full hover-lift">
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
-                </Button>
-              </form>
-            </Card>
+                  </motion.div>
+                  
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.8 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Button type="submit" className="w-full">
+                      <Send className="w-4 h-4 mr-2" />
+                      Send Message
+                    </Button>
+                  </motion.div>
+                </form>
+              </Card>
+            </motion.div>
 
             {/* Contact Info */}
             <div className="space-y-8 animate-slide-up" style={{ animationDelay: "0.2s" }}>
