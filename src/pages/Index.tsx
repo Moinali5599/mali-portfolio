@@ -4,10 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Calendar, MapPin, GraduationCap, Briefcase, ExternalLink, Github, Mail, Send, Linkedin, Download, ArrowDown, Code, Palette, Zap } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Calendar, MapPin, GraduationCap, Briefcase, ExternalLink, Github, Mail, Send, Linkedin, Eye, ArrowDown, Code, Palette, Zap, Sparkles, Star, Layers, BarChart, Award } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
+
+import ResumePdf from '../Resume.pdf'
+import avatarImage from '../memoji.png'
 
 const Index = () => {
   const { toast } = useToast();
@@ -35,7 +39,7 @@ const Index = () => {
     const body = encodeURIComponent(
       `Hi,\n\nMy name is ${formData.name}.\n\n${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`
     );
-    const mailtoLink = `mailto:your.email@example.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:mahaboobalishaik559@gmail.com?subject=${subject}&body=${body}`;
     
     window.location.href = mailtoLink;
     
@@ -54,64 +58,90 @@ const Index = () => {
   const skills = [
     {
       icon: Code,
-      title: "Development",
-      description: "Building scalable applications with modern technologies and best practices."
+      title: "Full Stack Engineering",
+      description: "Delivering scalable web applications using React, Spring Boot, Node.js, and TypeScript."
     },
     {
       icon: Palette,
-      title: "Design",
-      description: "Creating intuitive and beautiful user interfaces that users love."
+      title: "UI/UX & Accessibility",
+      description: "Designing responsive, accessible interfaces that follow WCAG guidelines and enhance user interaction."
     },
     {
       icon: Zap,
-      title: "Performance",
-      description: "Optimizing applications for speed, accessibility, and user experience."
+      title: "Cloud & Performance",
+      description: "Optimizing systems with AWS, Redis, and PostgreSQL while reducing latency and boosting reliability."
+    },
+    {
+      icon: Layers,
+      title: "Microservices & Architecture",
+      description: "Building modular, event-driven systems using Kafka, Docker, Kubernetes, and RESTful APIs."
+    },
+    {
+      icon: BarChart,
+      title: "Monitoring & DevOps",
+      description: "Integrating CI/CD pipelines with GitLab & Jenkins, monitoring with Datadog, Prometheus, and Snyk."
+    },
+    {
+      icon: Award,
+      title: "Certifications",
+      description: "AWS Certified Developer – Associate (Issued May 2025), validating expertise in cloud-native application development."
     }
   ];
+  
 
   const experiences = [
     {
       type: "work",
-      title: "Senior Full Stack Developer",
-      company: "Tech Company Inc.",
-      location: "San Francisco, CA",
-      period: "2022 - Present",
-      description: "Led development of scalable web applications serving 100k+ users. Implemented microservices architecture and improved performance by 40%.",
-      technologies: ["React", "Node.js", "TypeScript", "AWS", "PostgreSQL"]
+      title: "Java Full Stack Developer",
+      company: "IBM",
+      location: "Armonk, NY",
+      period: "Dec 2023 – Present",
+      description: "Integrated 15+ features into a healthcare claims platform using React, Spring Boot, and TypeScript. Improved API response times by 20% and led the adoption of containerization and CI/CD practices.",
+      technologies: ["React", "Spring Boot", "TypeScript", "Node.js", "PostgreSQL", "MongoDB", "Redis", "AWS", "Docker", "Kubernetes"]
     },
     {
       type: "work",
-      title: "Frontend Developer",
-      company: "StartupXYZ",
-      location: "New York, NY", 
-      period: "2020 - 2022",
-      description: "Built responsive web applications and collaborated with design team to create exceptional user experiences.",
-      technologies: ["React", "JavaScript", "Tailwind CSS", "Next.js"]
+      title: "Associate Software Engineer",
+      company: "Cognizant",
+      location: "Hyderabad, India",
+      period: "Aug 2021 – Dec 2022",
+      description: "Developed a property leasing platform with Elasticsearch, React, and Spring Boot. Boosted engagement by 25% with Google Maps API integration and reduced UI dev time by 40% via reusable components.",
+      technologies: ["React", "Redux", "Spring Boot", "Elasticsearch", "Java", "Google Maps API", "Snyk", "Datadog"]
     },
     {
       type: "education",
-      title: "Bachelor of Science in Computer Science",
-      company: "University of Technology",
-      location: "Boston, MA",
-      period: "2016 - 2020",
-      description: "Graduated Magna Cum Laude. Relevant coursework: Data Structures, Algorithms, Software Engineering, Database Systems.",
-      technologies: ["Java", "Python", "C++", "SQL"]
+      title: "MS in Computer Science",
+      company: "University of North Texas",
+      location: "Denton, TX", 
+      period: "Jan 2023 – Dec 2024",
+      description: "Focused on secure software development, AI tools, and large-scale systems. Worked on academic projects involving NLP, LLMs, and test automation using ChatGPT.",
+      technologies: ["Python", "LangChain", "Flask", "React", "ChatGPT API", "TensorFlow", "PyTorch"]
     },
     {
-      type: "work",
-      title: "Web Developer Intern",
-      company: "Digital Agency",
-      location: "Boston, MA",
-      period: "Summer 2019",
-      description: "Developed client websites and gained experience with modern web development practices.",
-      technologies: ["HTML", "CSS", "JavaScript", "WordPress"]
+      type: "education",
+      title: "BTech in Civil Engineering",
+      company: "SASTRA University",
+      location: "Thanjavur, India",
+      period: "Aug 2017 – Jul 2021",
+      description: "Introduced to programming via Java and Ruby on Rails. Completed coursework in software development and database systems.",
+      technologies: ["Java", "Ruby on Rails", "PostgreSQL", "HTML", "CSS"]
     }
   ];
+  
 
   const projects = [
     {
+      title: "Patient Management System",
+      description: "A microservices-based system for handling patient records with JWT authentication, Kafka event streaming, and REST APIs. Scalable to 1000+ daily requests.",
+      image: "https://private-user-images.githubusercontent.com/59311134/435323329-f746b761-842f-496c-96b1-32005d461d10.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTI2ODI4NDgsIm5iZiI6MTc1MjY4MjU0OCwicGF0aCI6Ii81OTMxMTEzNC80MzUzMjMzMjktZjc0NmI3NjEtODQyZi00OTZjLTk2YjEtMzIwMDVkNDYxZDEwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA3MTYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNzE2VDE2MTU0OFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTY3ZGFiNmMzYjg4OTkyODc2MmM2NDYwN2M5ZTMwMDg0MzYzZWU2YzY3OTViMWI1NmY1ZjFjMjljYWYxZDA2MGUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.JzawATELY96HFO0GKBwnPT3gl7_bITLFA1jg6nH0JwU",
+      technologies: ["Spring Boot", "React", "Kafka", "PostgreSQL", "MongoDB", "Docker"],
+      github: "https://github.com/Moinali5599/patient-management-microservices",
+      live: "#",
+      featured: true
+    },
+    {
       title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, and admin dashboard.",
+      description: "A full-stack e-commerce solution with user authentication, payment processing, and admin dashboards for inventory and analytics.",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
       technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Tailwind CSS"],
       github: "#",
@@ -119,44 +149,168 @@ const Index = () => {
       featured: true
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-      technologies: ["React", "TypeScript", "Socket.io", "MongoDB"],
-      github: "#",
-      live: "#",
-      featured: true
-    },
-    {
-      title: "Weather Dashboard",
-      description: "A responsive weather application that provides current weather conditions and forecasts with interactive charts and maps.",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
-      technologies: ["React", "Chart.js", "Weather API", "CSS3"],
+      title: "Test Case Refactoring with ChatGPT",
+      description: "Explored zero-shot and one-shot prompting with OpenAI API to automate test case refactoring. Evaluated prompt engineering patterns for reliability.",
+      image: "https://images.unsplash.com/photo-1605379399642-870262d3d051?w=600&h=400&fit=crop",
+      technologies: ["Python", "OpenAI API", "Jupyter", "ChatGPT", "Test Automation"],
       github: "#",
       live: "#"
     },
     {
       title: "Portfolio Website",
-      description: "A modern, responsive portfolio website built with React and Tailwind CSS, featuring smooth animations and optimized performance.",
+      description: "A modern portfolio built with React, Tailwind, and Framer Motion. Includes smooth animations, responsive design, and project showcase.",
       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
       technologies: ["React", "Tailwind CSS", "Framer Motion", "Netlify"],
       github: "#",
       live: "#"
     }
-  ];
+  ];  
+
+  const handlePreview = () => {
+    window.open(ResumePdf, '_blank');
+  };
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-10">
-        <div className="container mx-auto px-6 text-center">
+      <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-10 relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <motion.div
+            className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3] 
+            }}
+            transition={{ 
+              duration: 6, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+          />
+          <motion.div
+            className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+            animate={{ 
+              scale: [1.2, 1, 1.2],
+              opacity: [0.4, 0.2, 0.4] 
+            }}
+            transition={{ 
+              duration: 8, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+          />
+          
+          {/* Floating particles */}
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-accent/20 rounded-full"
+              style={{
+                left: `${10 + i * 15}%`,
+                top: `${20 + i * 10}%`,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                opacity: [0.2, 0.8, 0.2],
+              }}
+              transition={{
+                duration: 3 + i,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 0.5,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="container mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
+            {/* Avatar with stunning effects */}
+            <motion.div
+              className="relative mb-8 flex justify-center"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.1 }}
+            >
+              <motion.div
+                className="relative"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Animated ring */}
+                <motion.div
+                  className="absolute inset-0 rounded-full border-2 border-accent/30"
+                  style={{ width: '180px', height: '180px', margin: '-10px' }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                />
+                
+                {/* Glow effect */}
+                <motion.div
+                  className="absolute inset-0 rounded-full bg-accent/20 blur-xl"
+                  style={{ width: '160px', height: '160px' }}
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                    opacity: [0.3, 0.6, 0.3] 
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                />
+                
+                {/* Avatar image */}
+                <motion.img
+                  src={avatarImage}
+                  alt="Developer Avatar"
+                  className="relative w-40 h-40 rounded-full object-cover border-4 border-accent/50 shadow-2xl"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                />
+                
+                {/* Sparkle effects */}
+                <motion.div
+                  className="absolute -top-2 -right-2"
+                  animate={{ 
+                    rotate: [0, 360],
+                    scale: [0.8, 1.2, 0.8] 
+                  }}
+                  transition={{ 
+                    duration: 4, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                >
+                  <Sparkles className="w-6 h-6 text-accent" />
+                </motion.div>
+                
+                <motion.div
+                  className="absolute -bottom-2 -left-2"
+                  animate={{ 
+                    rotate: [360, 0],
+                    scale: [1.2, 0.8, 1.2] 
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    delay: 1 
+                  }}
+                >
+                  <Star className="w-5 h-5 text-primary" />
+                </motion.div>
+              </motion.div>
+            </motion.div>
+
             <motion.h1 
               className="text-5xl md:text-7xl font-bold mb-6"
               initial={{ opacity: 0, y: 30 }}
@@ -165,7 +319,7 @@ const Index = () => {
             >
               <span className="text-gradient">Hello, I'm</span>
               <br />
-              <span className="text-foreground">Your Name</span>
+              <span className="text-foreground">Mahaboob Ali</span>
             </motion.h1>
             
             <motion.p 
@@ -174,7 +328,7 @@ const Index = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Full Stack Developer passionate about creating beautiful, functional, and user-centered digital experiences.
+              Full Stack Developer with a strong foundation in scalable architecture, cloud deployment, and intuitive UI design—committed to building performant, accessible apps that solve real-world problems.
             </motion.p>
 
             <motion.div 
@@ -184,22 +338,26 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg">
-                  <Github className="mr-2 h-5 w-5" />
-                  GitHub
+                <Button size="lg" asChild>
+                  <a target="_blank" href="https://github.com/Moinali5599">
+                    <Github className="mr-2 h-5 w-5" />
+                    GitHub
+                  </a>
                 </Button>
               </motion.div>
               
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button variant="outline" size="lg">
-                  <Linkedin className="mr-2 h-5 w-5" />
-                  LinkedIn
+                <Button variant="outline" size="lg" asChild>
+                  <a target="_blank" href="https://www.linkedin.com/in/mahaboobalic/">
+                    <Linkedin className="mr-2 h-5 w-5" />
+                    LinkedIn
+                  </a>
                 </Button>
               </motion.div>
               
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button variant="secondary" size="lg">
-                  <Download className="mr-2 h-5 w-5" />
+                <Button variant="secondary" size="lg" onClick={handlePreview}>
+                  <Eye className="mr-2 h-5 w-5" />
                   Resume
                 </Button>
               </motion.div>
@@ -249,9 +407,7 @@ const Index = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              I'm a passionate developer with a love for creating digital experiences that make a difference. 
-              With expertise in modern web technologies, I enjoy turning complex problems into simple, 
-              beautiful, and intuitive solutions.
+              I'm a software engineer with a passion for turning complex challenges into elegant, high-impact solutions. Whether I’m building backend microservices or crafting sleek UIs, I focus on performance, accessibility, and maintainability—delivering digital experiences that are as reliable as they are delightful.
             </motion.p>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -300,15 +456,6 @@ const Index = () => {
             >
               My <span className="text-gradient">Journey</span>
             </motion.h2>
-            <motion.p 
-              className="text-xl text-muted-foreground max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              A timeline of my professional experience and educational background
-            </motion.p>
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
@@ -428,75 +575,98 @@ const Index = () => {
             </motion.p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className={project.featured ? 'lg:col-span-2' : ''}
-              >
-                <Card className="overflow-hidden bg-surface-elevated h-full">
-                  <div className={`${project.featured ? 'md:flex' : ''}`}>
-                    <motion.div 
-                      className={`${project.featured ? 'md:w-1/2' : ''}`}
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="max-w-7xl mx-auto"
+          >
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {projects.map((project, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                    <motion.div
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      whileHover={{ y: -10, scale: 1.02 }}
+                      className="h-full"
                     >
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="w-full h-48 md:h-64 object-cover"
-                      />
+                      <Card className="overflow-hidden bg-surface-elevated h-full flex flex-col">
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="w-full h-48 object-cover"
+                          />
+                        </motion.div>
+                        
+                        <div className="p-6 flex-1 flex flex-col">
+                          <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+                          <p className="text-muted-foreground mb-4 leading-relaxed flex-1">
+                            {project.description}
+                          </p>
+                          
+                          <div className="flex flex-wrap gap-2 mb-6">
+                            {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                              <motion.div
+                                key={techIndex}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.3, delay: 0.5 + techIndex * 0.05 }}
+                              >
+                                <Badge variant="outline" className="text-xs">
+                                  {tech}
+                                </Badge>
+                              </motion.div>
+                            ))}
+                            {project.technologies.length > 3 && (
+                              <Badge variant="outline" className="text-xs">
+                                +{project.technologies.length - 3}
+                              </Badge>
+                            )}
+                          </div>
+                          
+                          <div className="flex gap-2">
+                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-1">
+                              <Button size="sm" className="w-full">
+                                <Github className="w-4 h-4 mr-1" />
+                                Code
+                              </Button>
+                            </motion.div>
+                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-1">
+                              <Button variant="outline" size="sm" className="w-full">
+                                <ExternalLink className="w-4 h-4 mr-1" />
+                                Demo
+                              </Button>
+                            </motion.div>
+                          </div>
+                        </div>
+                      </Card>
                     </motion.div>
-                    
-                    <div className={`p-8 ${project.featured ? 'md:w-1/2' : ''}`}>
-                      <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
-                      <p className="text-muted-foreground mb-4 leading-relaxed">
-                        {project.description}
-                      </p>
-                      
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {project.technologies.map((tech, techIndex) => (
-                          <motion.div
-                            key={techIndex}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: 0.5 + techIndex * 0.05 }}
-                          >
-                            <Badge variant="outline">
-                              {tech}
-                            </Badge>
-                          </motion.div>
-                        ))}
-                      </div>
-                      
-                      <div className="flex gap-3">
-                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                          <Button size="sm">
-                            <Github className="w-4 h-4 mr-2" />
-                            Code
-                          </Button>
-                        </motion.div>
-                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                          <Button variant="outline" size="sm">
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            Live Demo
-                          </Button>
-                        </motion.div>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex" />
+              <CarouselNext className="hidden md:flex" />
+            </Carousel>
+          </motion.div>
         </div>
       </section>
+
 
       {/* Contact Section */}
       <section id="contact" className="py-20">
@@ -638,7 +808,7 @@ const Index = () => {
 
             {/* Contact Info */}
             <div className="space-y-8 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-              <Card className="p-8 hover-lift bg-surface-elevated">
+              {/* <Card className="p-8 hover-lift bg-surface-elevated">
                 <div className="flex items-center gap-4 mb-4">
                   <Mail className="w-6 h-6 text-accent" />
                   <div>
@@ -649,20 +819,20 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground">
                   Feel free to reach out for collaborations or just a friendly hello!
                 </p>
-              </Card>
+              </Card> */}
 
               <Card className="p-8 hover-lift bg-surface-elevated">
                 <h4 className="font-semibold mb-4">Connect with me</h4>
                 <div className="space-y-3">
                   <a 
-                    href="#" 
+                    href="https://github.com/Moinali5599" 
                     className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors"
                   >
                     <Github className="w-5 h-5" />
                     GitHub
                   </a>
                   <a 
-                    href="#" 
+                    href="https://www.linkedin.com/in/mahaboobalic/" 
                     className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors"
                   >
                     <Linkedin className="w-5 h-5" />
