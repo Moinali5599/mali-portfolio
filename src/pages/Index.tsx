@@ -642,15 +642,19 @@ const Index = () => {
                           
                           <div className="flex gap-2">
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-1">
-                              <Button size="sm" className="w-full">
-                                <Github className="w-4 h-4 mr-1" />
-                                Code
+                              <Button size="sm" className="w-full" asChild>
+                                <a target='_blank' href={project.github}>
+                                  <Github className="w-4 h-4 mr-1" />
+                                  Code
+                                </a>
                               </Button>
                             </motion.div>
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-1">
-                              <Button variant="outline" size="sm" className="w-full">
-                                <ExternalLink className="w-4 h-4 mr-1" />
-                                Demo
+                              <Button variant="outline" size="sm" className="w-full" asChild>
+                                <a target='_blank' href={project.live}>
+                                  <ExternalLink className="w-4 h-4 mr-1" />
+                                  Demo
+                                </a>
                               </Button>
                             </motion.div>
                           </div>
