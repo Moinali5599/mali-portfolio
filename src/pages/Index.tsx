@@ -133,19 +133,19 @@ const Index = () => {
     {
       title: "Patient Management System",
       description: "A microservices-based system for handling patient records with JWT authentication, Kafka event streaming, and REST APIs. Scalable to 1000+ daily requests.",
-      image: "https://private-user-images.githubusercontent.com/59311134/435323329-f746b761-842f-496c-96b1-32005d461d10.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTI2ODI4NDgsIm5iZiI6MTc1MjY4MjU0OCwicGF0aCI6Ii81OTMxMTEzNC80MzUzMjMzMjktZjc0NmI3NjEtODQyZi00OTZjLTk2YjEtMzIwMDVkNDYxZDEwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA3MTYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNzE2VDE2MTU0OFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTY3ZGFiNmMzYjg4OTkyODc2MmM2NDYwN2M5ZTMwMDg0MzYzZWU2YzY3OTViMWI1NmY1ZjFjMjljYWYxZDA2MGUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.JzawATELY96HFO0GKBwnPT3gl7_bITLFA1jg6nH0JwU",
+      image: "https://res.cloudinary.com/dgcijdkpw/image/upload/v1752945134/pms-arch_oh7u4b.png",
       technologies: ["Spring Boot", "React", "Kafka", "PostgreSQL", "MongoDB", "Docker"],
       github: "https://github.com/Moinali5599/patient-management-microservices",
       live: "#",
       featured: true
     },
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with user authentication, payment processing, and admin dashboards for inventory and analytics.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Tailwind CSS"],
-      github: "#",
-      live: "#",
+      title: "GSAP Bar Site",
+      description: "A beautiful animated landing page for a bar made with GSAP, React, TailwindCSS",
+      image: "https://res.cloudinary.com/dgcijdkpw/image/upload/v1752945018/Screenshot_2025-07-19_at_12.53.21_PM_ixcujd.png",
+      technologies: ["React", "GSAP", "Tailwind CSS"],
+      github: "https://github.com/Moinali5599/gsap-spa",
+      live: "https://gsap-spa.vercel.app/",
       featured: true
     },
     {
@@ -157,11 +157,11 @@ const Index = () => {
       live: "#"
     },
     {
-      title: "Portfolio Website",
-      description: "A modern portfolio built with React, Tailwind, and Framer Motion. Includes smooth animations, responsive design, and project showcase.",
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
-      technologies: ["React", "Tailwind CSS", "Framer Motion", "Netlify"],
-      github: "#",
+      title: "Web Scrap Workflow Builder",
+      description: "A full stack application featuring from user authentication to execution of web scrapping workflows made with Next.js, Prisma, React-flow, Playwright",
+      image: "https://res.cloudinary.com/dgcijdkpw/image/upload/v1752944797/Screenshot_2025-07-19_at_1.06.22_PM_fzluoq.png",
+      technologies: ["Next.js", "Prisma","TypeScript", "Tailwind CSS", "Zod", "Playwright"],
+      github: "https://github.com/Moinali5599/data-scrape",
       live: "#"
     }
   ];  
