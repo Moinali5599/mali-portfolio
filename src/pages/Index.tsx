@@ -149,6 +149,15 @@ const Index = () => {
       featured: true
     },
     {
+      title: "GSAP: Page transistion",
+      description: "Awwwards site of the day page transistion with next.js app router",
+      image: "https://res.cloudinary.com/dgcijdkpw/image/upload/v1754961746/Screenshot_2025-08-11_at_9.21.26_PM_bkwgyw.png",
+      technologies: ["Next.js", "GSAP"],
+      github: "https://stackblitz.com/edit/stackblitz-starters-n1ehffnb?file=app%2Fpage.tsx",
+      live: "https://stackblitz.com/edit/stackblitz-starters-n1ehffnb?file=app%2Fpage.tsx",
+      featured: true
+    },
+    {
       title: "Test Case Refactoring with ChatGPT",
       description: "Explored zero-shot and one-shot prompting with OpenAI API to automate test case refactoring. Evaluated prompt engineering patterns for reliability.",
       image: "https://images.unsplash.com/photo-1605379399642-870262d3d051?w=600&h=400&fit=crop",
