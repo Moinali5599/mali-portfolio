@@ -158,6 +158,15 @@ const Index = () => {
       featured: true
     },
     {
+      title: "GSAP: Clip-path animation",
+      description: "Awwwards site page transistion with clip path",
+      image: "https://res.cloudinary.com/dgcijdkpw/image/upload/v1755205608/Screenshot_2025-08-14_at_5.05.29_PM_qv1xnx.png",
+      technologies: ["GSAP", "Lenis"],
+      github: "https://replit.com/@moinali5599/clip-path-page-routing?v=1",
+      live: "https://replit.com/@moinali5599/clip-path-page-routing?v=1",
+      featured: true
+    },
+    {
       title: "Test Case Refactoring with ChatGPT",
       description: "Explored zero-shot and one-shot prompting with OpenAI API to automate test case refactoring. Evaluated prompt engineering patterns for reliability.",
       image: "https://images.unsplash.com/photo-1605379399642-870262d3d051?w=600&h=400&fit=crop",
